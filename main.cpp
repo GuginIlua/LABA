@@ -12,6 +12,7 @@ int main() {
     int a;
     int b;
     int c;
+    int key=0;
     cout << "Create array for n=";
     cin >> n;
     Person * arr = new Person[n];
@@ -177,8 +178,11 @@ int main() {
                         cout << "name[" << i << "]=" << arr[i].name() << endl;
                         cout << "age[" << i << "]=" << arr[i].age() << endl;
                         cout << "sallary[" << i << "]=" << arr[i].sallary() << endl;
+                        key=1;
                     }
                 }
+                if(key==0) cout<<"\nnot found"<<endl;
+                 key=0;
             }
             if(c==2){
                 int age2;
@@ -190,8 +194,11 @@ int main() {
                         cout << "name[" << i << "]=" << arr[i].name() << endl;
                         cout << "age[" << i << "]=" << arr[i].age() << endl;
                         cout << "sallary[" << i << "]=" << arr[i].sallary() << endl;
+                        key=1;
                     }
                 }
+                if(key==0) cout<<"\nnot found"<<endl;
+                 key=0;
             }
             if(c==3){
                 int sal2;
@@ -203,13 +210,18 @@ int main() {
                         cout << "name[" << i << "]=" << arr[i].name() << endl;
                         cout << "age[" << i << "]=" << arr[i].age() << endl;
                         cout << "sallary[" << i << "]=" << arr[i].sallary() << endl;
+                        key=1;
                     }
                 }
+                if(key==0) cout<<"\nnot found"<<endl;
+                key=0;
             }
         }
+    }
+    }
     delete [] arr;
-    }
-    }
+
+
 
     return 0;
 }
