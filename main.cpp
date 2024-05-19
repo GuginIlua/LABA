@@ -13,34 +13,9 @@ int main() {
     int b;
     int c;
     int key=0;
-    cout << "Create array for n=";
-    cin >> n;
-    Person * arr = new Person[n];
-    if (n < 1)
-        return 0;
-    for (int i = 0; i < n; i++) {
-        string name;
-        int age;
-        int sallary;
-        cout << "name[" << i << "]=";
-        cin >> name;
-        cout << "age[" << i << "]=";
-        cin >> age;
-        cout << "sallary[" << i << "]=";
-        cin >> sallary;
-        arr[i].setName(name);
-        arr[i].setAge(age);
-        arr[i].setSallary(sallary);
-    }
-
-    cout << "\ncreated arr:" << endl;
-    for (int i = 0; i < n; i++) {
-        cout << "name[" << i << "]=" << arr[i].name() << endl;
-        cout << "age[" << i << "]=" << arr[i].age() << endl;
-        cout << "sallary[" << i << "]=" << arr[i].sallary() << endl;
-    }
-
-    save(arr, n);
+    Person first;
+    n=0;
+    Person *arr=nullptr;
     while(1){
     cout<<"\n1-write,2-read,3-end"<<endl;
     cin>>a;
@@ -61,17 +36,12 @@ int main() {
                 string name;
                 int age;
                 int sallary;
-                cout << "name[" << i << "]=";
-                cin >> name;
-                cout << "age[" << i << "]=";
-                cin >> age;
-                cout << "sallary[" << i << "]=";
-                cin >> sallary;
+                cout << "Enter name,age,sallary:";
                 arr[i].setName(name);
                 arr[i].setAge(age);
                 arr[i].setSallary(sallary);
-                save(arr, n);
             }
+            save(arr, n);
         }
         if(b==2){
             cout<<"Which one?"<<endl;
@@ -82,12 +52,7 @@ int main() {
                     string name;
                     int age;
                     int sallary;
-                    cout << "name[" << i << "]=";
-                    cin >> name;
-                    cout << "age[" << i << "]=";
-                    cin >> age;
-                    cout << "sallary[" << i << "]=";
-                    cin >> sallary;
+                    cout << "Enter name,age,sallary:";
                     arr[i].setName(name);
                     arr[i].setAge(age);
                     arr[i].setSallary(sallary);
@@ -97,25 +62,16 @@ int main() {
             }
         }
         if(b==3){
-           string name;
-           int age;
-           int sallary;
            Person * arr2 = new Person[n+1];
            for (int i = 0; i < n; i++){
            arr2[i]=arr[i];
            }
-           delete[] arr;
-           Person * arr = new Person[n+1];
-           for (int i = 0; i < n+1; i++){
-           arr[i]=arr2[i];
-           }
+           arr=arr2;
            delete[] arr2;
-           cout << "name[" << n << "]=";
-           cin >> name;
-           cout << "age[" << n << "]=";
-           cin >> age;
-           cout << "sallary[" << n << "]=";
-           cin >> sallary;
+           string name;
+           int age;
+           int sallary;
+           cout << "Enter name,age,sallary:";
            arr[n].setName(name);
            arr[n].setAge(age);
            arr[n].setSallary(sallary);
@@ -134,7 +90,6 @@ int main() {
                     arr2[i]=arr[i];;
                     }
                     delete[] arr;
-                    Person * arr = new Person[n-1];
                     for (int i = 0; i < n-1; i++){
                     arr[i]=arr2[i];
                     }
@@ -156,12 +111,13 @@ int main() {
     cout << "loaded n=" << n << endl;
     if (!arr) {
         cout << "arr is null" << endl;
-        return 0;
     }
     for (int i = 0; i < n; i++) {
-        cout << "name[" << i << "]=" << arr[i].name() << endl;
-        cout << "age[" << i << "]=" << arr[i].age() << endl;
-        cout << "sallary[" << i << "]=" << arr[i].sallary() << endl;
+        for (int i = 0; i < n; i++) {
+               cout << "name[" << i << "]=" << arr[i].name() << endl;
+               cout << "age[" << i << "]=" << arr[i].age() << endl;
+               cout << "sallary[" << i << "]=" << arr[i].sallary() << endl;
+           }
     }
         }
         if(c==2){
@@ -220,9 +176,6 @@ int main() {
     }
     }
     delete [] arr;
-
-
-
     return 0;
 }
 

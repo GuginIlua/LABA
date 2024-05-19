@@ -43,3 +43,19 @@ Person * functions::load(int &n) {
     file.close();
     return arr;
 }
+ostream& operator<<(ostream& os, const Person& dt)
+{
+    os << dt.name() << '/' << dt.age() << '/' << dt.sallary();
+    return os;
+}
+istream& operator>>(istream& in, Person& p)
+{
+    string name;
+    int age;
+    int sallary;
+    in >> name >> age>>sallary;
+    p.setName(name);
+    p.setAge(age);
+    p.setSallary(sallary);
+    return in;
+}
